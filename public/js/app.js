@@ -70735,6 +70735,13 @@ var Header = /*#__PURE__*/function (_Component) {
       manage_income: false
     };
     _this.logout = _this.logout.bind(_assertThisInitialized(_this));
+
+    var rtm = _assertThisInitialized(_this);
+
+    setInterval(function () {
+      rtm.checkMangeIncome();
+      rtm.render();
+    }, 5000);
     return _this;
   }
 
@@ -70752,6 +70759,10 @@ var Header = /*#__PURE__*/function (_Component) {
         if (response.data.status === 200) {
           _this2.setState({
             manage_income: true
+          });
+        } else {
+          _this2.setState({
+            manage_income: false
           });
         }
       })["catch"](function (error) {

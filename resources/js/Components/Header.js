@@ -21,6 +21,12 @@ class Header extends Component{
             manage_income : false
         }
         this.logout = this.logout.bind(this)
+
+        var rtm = this;
+        setInterval(function(){
+            rtm.checkMangeIncome();
+            rtm.render();
+        }, 5000);
     };
 
     componentWillMount() {
@@ -31,6 +37,8 @@ class Header extends Component{
         axios.get('/manage-income/check').then((response) => {
             if(response.data.status === 200){
                 this.setState({manage_income: true});
+            } else {
+                this.setState({manage_income: false});
             }
         }).catch(function(error) {
             console.log(error);
