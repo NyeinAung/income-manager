@@ -1,0 +1,8 @@
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+  color: #fff!important;
+}
+
+.pre-wrap {
+  white-space: pre-wrap;
+}
